@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Papabol – Login</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<video autoplay muted loop id="bg-video">
+  <source src="assets/anime-bg.mp4" type="video/mp4">
+</video>
+
+<div class="box">
+
+<h2>Login</h2>
+
+<input id="username" placeholder="Username">
+<input id="password" placeholder="Password" type="password">
+
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+
+<p>Don't have an account? <a href="register.html">Register</a></p>
+
+</div>
+
+<script>
+function login() {
+    fetch("api/login.php", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            user: document.getElementById("username").value,
+            pass: document.getElementById("password").value
+        })
+    })
+    .then(r=>r.json())
+    .then(d=>{
+        if(d.status==="ok") window.location="dashboard.html";
+        else document.getElementById("msg").innerText=d.message;
+    });
+}
+</script>
+
+</body>
+</html>
