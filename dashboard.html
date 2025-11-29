@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="dash-box">
+    <h2>Welcome</h2>
+
+    <button onclick="validateKey()">Check Key</button>
+    <p id="msg"></p>
+
+    <a href="index.html">Logout</a>
+</div>
+
+<script>
+function validateKey() {
+    fetch("api/validate_key.php")
+    .then(r=>r.json())
+    .then(d=>{
+        document.getElementById("msg").innerText = d.message;
+    });
+}
+</script>
+
+</body>
+</html>
