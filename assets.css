@@ -1,0 +1,42 @@
+body {
+  margin:0;
+  padding:0;
+  font-family:Arial;
+  color:white;
+}
+
+#bg-video {
+  position:fixed;
+  right:0;
+  bottom:0;
+  min-width:100%;
+  min-height:100%;
+  filter:brightness(0.3);
+}
+
+.box, .dash-box {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  background:rgba(0,0,0,0.5);
+  padding:30px;
+  border-radius:14px;
+  width:300px;
+  text-align:center;
+  backdrop-filter:blur(10px);
+}
+
+input, button {
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:10px;
+  border:none;
+}
+
+button {
+  background:#4A5BFF;
+  color:white;
+  font-weight:bold;
+}
